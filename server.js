@@ -5,6 +5,27 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content = {
+    title : 'Article One',
+    heading: 'Article one',
+    date : 'Nov 1',
+    content : `<p> 
+              Riyadh foils Daesh plot to bomb UAE-Saudi football match
+             </p>
+             <hr/>
+             <p>
+              Eight suspects arrested for planning killing while nine more on the run 
+             </p>
+              <p>
+              Four suspects who admitted their activitie as a cell and their links with Daesh confessed they had monitored several securiy men in Riyadh ,abuk and the eastern province.Other suspects had planned to attack cvilians in the eastern city of Qatif and stage a car bob attack on a visiting football team at he stadium.
+             
+             </p>`
+    
+}
+
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
