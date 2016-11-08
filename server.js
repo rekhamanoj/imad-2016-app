@@ -5,7 +5,9 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
+var articles=
+{
+    var articleOne: {
     title : 'Article One',
     heading: 'Article one',
     date : 'Nov 1',
@@ -21,8 +23,8 @@ var articleOne = {
              
              </p>`
     
-};
-var articleTwo = {
+},
+    var articleTwo:{
                     title : 'Article One',
                     heading: 'Article one',
                     date : 'Nov 2',
@@ -31,8 +33,8 @@ var articleTwo = {
                               This is my second article.Wish to see this running properly
                       
                               </p>`
-                };
-var articleThree = {
+                },
+    var articleThree:{
                     title : 'Article Three',
                     heading: 'Article Three',
                     date : 'Nov 3',
@@ -41,7 +43,8 @@ var articleThree = {
                               This is my third srticle
                       
                               </p>`
-                };
+                }
+};
                 
 function createTemplate(data) {
      var title=data.title;
@@ -93,10 +96,10 @@ app.get('/article-one',function(req,res)
      {    res.send(createTemplate(articleOne));    });
 
 app.get('/article-two',function(req,res)
-{res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));    });
+  {    res.send(createTemplate(articleTwo));    });
 
 app.get('/article-three',function(req,res)
-{res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));    });
+  {    res.send(createTemplate(articleThree));    });
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
